@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Weather</string>
+    <string name="weatherApiKey">5d120d716ff645fd1975314e1f1c78cd</string>
+    <string name="weather_item_menu">Weather</string>
+    <string name="show_the_weather">Show the weather</string>
+    <string name="city">Введите город</string>
 </resources>

@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
     private const val BASE_URL: String =
-        "https://api.openweathermap.org/data/2.5/weather?q=Bishkek&appid="
+        "https://api.openweathermap.org/"
     private var retrofit: Retrofit? = null
 
     fun getClient(): Retrofit? {

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/weather_back"
+    tools:context=".WeatherFragment">
+
+    <TextView
+        android:id="@+id/temp_textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/city_EditText"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="40sp" />
+    <EditText
+        android:id="@+id/city_EditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_showWeather"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="70dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="15dp"
+        android:hint="@string/city"
+        android:inputType="text"
+        android:textAlignment="center"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        tools:ignore="Autofill" />
+
+    <Button
+        android:id="@+id/btn_showWeather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/weather_textView"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="40dp"
+        android:text="@string/show_the_weather"
+        android:textColorHint="@color/black" />
+
+    <TextView
+        android:id="@+id/weather_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/country_textView"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"/>
+    <TextView
+        android:id="@+id/country_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_above="@+id/windSpeed_textView"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/windSpeed_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_above="@+id/clouds_textView"
+        android:textColor="@color/black"/>
+    <TextView
+        android:id="@+id/clouds_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/lon_textView"
+        android:layout_marginStart="10dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/lon_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"
+        android:layout_above="@+id/lat_textView" />
+    <TextView
+        android:id="@+id/lat_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/black" />
+
+
+
+
+</RelativeLayout>
