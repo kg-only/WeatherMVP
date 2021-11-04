@@ -25,7 +25,7 @@ class WeatherFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         binding = FragmentWeatherBinding.inflate(inflater, container, false)
         return binding.root
@@ -38,6 +38,7 @@ class WeatherFragment : Fragment() {
         val units = "metric"
         val lang = "ru"
         binding.btnShowWeather.setOnClickListener {
+
             api.getWeatherList(
                 city = binding.cityEditText.text.toString(),
                 key,
@@ -47,18 +48,42 @@ class WeatherFragment : Fragment() {
                 @SuppressLint("SetTextI18n")
                 override fun onResponse(
                     call: Call<WeatherDataClass>,
-                    response: Response<WeatherDataClass>
+                    response: Response<WeatherDataClass>,
                 ) {
                     if (response.isSuccessful && response.body() != null) {
                         val data = response.body()!!
+                        binding.description.text = "Описание"
+                        binding.country.text = "Страна"
+                        binding.windSpeed.text = "Скорость ветра"
+                        binding.clouds.text = "Облака"
+                        binding.lat.text = "Долгота"
+                        binding.lon.text = "Широта"
+
+                        val data1 = data.weather.toList()
+                        val data2 = data1.firstOrNull()
+                        binding.descriptionTextView.text = data2!!.description
                         binding.tempTextView.text = data.main.temp.toString() + " ℃"
-//                        binding.tempMaxTextView.text = "max " + data.main.temp_max.toString()
                         binding.cloudsTextView.text = "min " + data.clouds.all.toString()
                         binding.latTextView.text = "lat " + data.coord.lat.toString()
                         binding.lonTextView.text = "lon " + data.coord.lon.toString()
                         binding.windSpeedTextView.text = "wind speed " + data.wind.speed.toString()
                         binding.countryTextView.text = "county " + data.sys.country
-                        binding.weatherTextView.text = data.weather.toString()
+                        when {
+                            data.main.temp < -15.1  -> binding.comment.text =
+                                "Холодно пи*дец))))"
+                            data.main.temp < 0.1 && data.main.temp < -10.1 -> binding.comment.text =
+                                "Холодно нахрен!"
+                            data.main.temp > 10.1 && data.main.temp < 20.1 -> binding.comment.text =
+                                "Ну так, прохладно..."
+                            data.main.temp > 20.1 -> binding.comment.text = "Нормас!"
+                        }
+
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "Введите верно город или через дефис",
+                            Toast.LENGTH_SHORT
+                        ).show()
                     }
                 }
 
@@ -76,6 +101,7 @@ class WeatherFragment : Fragment() {
 
 
     }
+
 
 }
 

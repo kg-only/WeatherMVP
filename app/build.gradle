@@ -46,6 +46,10 @@ dependencies {
 
     //okhttp
     implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //CircleImageView
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 
     testImplementation 'junit:junit:4.13.2'
