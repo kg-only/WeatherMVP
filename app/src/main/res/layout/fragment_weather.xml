@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/wheather_back"
     android:orientation="vertical"
-    tools:context=".WeatherFragment">
+    tools:context=".ui.WeatherFragment">
 
     <RelativeLayout
         android:id="@+id/top"
@@ -25,16 +25,6 @@
             android:textColorHint="@color/white"
             android:textSize="40sp" />
 
-        <TextView
-            android:id="@+id/comment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/temp_textView"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="10dp"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
 
     </RelativeLayout>
 
@@ -225,32 +215,23 @@
                 android:textColorHint="@color/white" />
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/city_EditText"
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cityEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/sixLinear"
             android:layout_marginHorizontal="70dp"
             android:layout_marginTop="5dp"
             android:hint="@string/city"
-            android:inputType="text"
+            android:importantForAutofill="no"
+            android:inputType="textPersonName"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
-            android:textSize="20sp"
-            android:importantForAutofill="no" />
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btn_showWeather"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/city_EditText"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="15dp"
-            android:background="@drawable/btn"
-            android:padding="8dp"
-            android:text="Показать погоду"
-            android:textColor="@color/white" />
+
 
     </RelativeLayout>
 
